@@ -1,3 +1,7 @@
+ifndef MODULE_MATH_OPTIMIZATION
+	MODULE_MATH_OPTIMIZATION = -g3 -O0
+endif
+
 #**********************************************************************
 # Для сборки module_math.
 #**********************************************************************
@@ -11,7 +15,7 @@ MODULE_MATH_OBJ_FILE		:= $(patsubst %.c, %.o, $(MODULE_MATH_OBJ_FILE))
 build/obj/module_math/%.o:	module_math/%.c $(USER_CFG_H_FILE)
 	@echo [CC] $<
 	@mkdir -p $(dir $@)
-	@$(CC) $(C_FAT_FS_FLAGS) $(MODULE_MATH_PATH) $(USER_CFG_PATH) $(FAT_FS_OPTIMIZATION) -c $< -o $@
+	@$(CC) $(C_FLAGS) $(MODULE_MATH_PATH) $(USER_CFG_PATH) $(MODULE_MATH_OPTIMIZATION) -c $< -o $@
 
 # Добавляем к общим переменным проекта.
 PROJECT_PATH			+= $(MODULE_MATH_PATH)
