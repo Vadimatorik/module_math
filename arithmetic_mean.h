@@ -1,3 +1,7 @@
+#pragma once
+
+#ifdef MODULE_ARITHMETIC_MEAN_ENABLED
+
 #ifdef __cplusplus
 
 #include <stdint.h>
@@ -41,5 +45,7 @@ private:
 	float				value				= 0;
 	uint32_t			valCounter			= 0;
 };
+
+#endif
 
 #endif
